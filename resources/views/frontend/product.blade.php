@@ -22,7 +22,7 @@
                             </p>
                             <div>{{$product->price}}$</div>
                             <label for="">Count</label> <br>
-                            <input type="number" class="count-product" style="outline: none;border: 1px solid; border-radius: 20px; padding-left:20px;" value="1">
+                            <input type="number" class="count-product" style="outline: none;border: 1px solid; border-radius: 20px; padding-left:20px;" min="1" value="1">
                         </div>
                         <div class="card-footer">
                             @auth

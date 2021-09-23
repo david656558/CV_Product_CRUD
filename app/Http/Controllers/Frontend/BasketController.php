@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
 use App\Models\Basket;
+use App\Models\Product;
 use Illuminate\Http\Request;
 
 class BasketController extends Controller
@@ -27,11 +28,18 @@ class BasketController extends Controller
 
     public function create(Request $request){
 //        dd($request->all());
-        $basket = new Basket();
-        $basket->user_id = Auth()->user()->id;
-        $basket->product_id = $request->id;
-        $basket->count = $request->count;
-        $basket->save();
+//        $x = Product::find($request->id)->load('basket');
+        $basket = Basket::where('user_id', Auth()->id())->where('product_id', $request->id)->first();
+        if($basket){
+            $basket->count = $basket->count + 1;
+            $basket->save();
+        }else{
+            $basket = new Basket();
+            $basket->user_id = Auth()->user()->id;
+            $basket->product_id = $request->id;
+            $basket->count = $request->count;
+            $basket->save();
+        }
         return response()->json($basket, 200);
     }
 
