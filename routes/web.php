@@ -48,6 +48,7 @@ Route::post('/email/verification-notification', function (Request $request) {
 ////////////////////////////////   Admin panel ///////////////////////////////
 Route::group(['middleware'=>['auth', 'admin', 'verified'], 'prefix'=>'/admin', 'namespace'=>'\App\Http\Controllers\Backend'], function (){
     Route::get('/', 'DashboardController@index')->name('dashboard');
+    Route::get('/users', 'UserController@index')->name('user-index');
     Route::resource('product', ProductController::class);
 });
 

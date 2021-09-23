@@ -72,6 +72,12 @@
                     </a>
                 </li>
 
+                <li class="nav-item">
+                    <a href="{{route('user-index')}}" class="nav-link {{ Route::currentRouteNamed('user-index') ? 'active' : '' }}" style="padding-left: 35px;">
+                        <i class="nav-icon fad fa-project-diagram"></i>
+                        <p>Users</p>
+                    </a>
+                </li>
 
             </ul>
         </nav>

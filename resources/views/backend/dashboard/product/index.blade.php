@@ -45,7 +45,7 @@
                                         <th>Name</th>
                                         <th>Description</th>
                                         <th>Price</th>
-                                        <th>Data</th>
+                                        <th>Data / activate(<span style="color: red">{{count($productsGlobal)}}</span>) / deactivate(<span style="color: red">{{count($products) - count($productsGlobal)}}</span>)</th>
                                         <th>Actions</th>
                                     </tr>
                                     </thead>
@@ -65,7 +65,7 @@
                                             <td>
                                                 {{$product->price}}$
                                             </td>
-                                            <td>
+                                            <td @if($product->end_date < time() || $product->start_date > time()) style="color: red" @endif>
                                                 Start Data: {!! date('Y-m-d', $product->start_date) == date('Y-m-d', 0) ? 'no date' : date('Y-m-d', $product->start_date) !!} <br>
                                                 End Data: {!! date('Y-m-d', $product->end_date) == date('Y-m-d', 0) ? 'no date' : date('Y-m-d', $product->end_date) !!} <br>
                                             </td>
