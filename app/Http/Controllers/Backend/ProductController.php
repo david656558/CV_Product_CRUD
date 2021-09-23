@@ -42,12 +42,13 @@ class ProductController extends Controller
     public function store(CreateRequest $request)
     {
 //        dd($request->all());
+//        dd(strtotime(1970-01-01) );
         $product = new Product();
         $product->name = $request->name;
         $product->price = $request->price;
         $product->description = $request->description;
-        $product->start_date = strtotime($request->start_date) ;
-        $product->end_date = strtotime($request->end_date);
+        $product->start_date = strtotime($request->start_date) == strtotime(1970-01-01) ?  0 : strtotime($request->start_date) ;
+        $product->end_date = strtotime($request->end_date) == strtotime(1970-01-01) ?  0 : strtotime($request->end_date);
         $product->status = $request->status ? $request->status : 1;
         $path = storage_path('app' . DIRECTORY_SEPARATOR . 'public' . DIRECTORY_SEPARATOR . 'product' . DIRECTORY_SEPARATOR);
         $imgName = FileHelper::upload($request->file , $path);

@@ -63,11 +63,11 @@
                                                 {{$product->description}}
                                             </td>
                                             <td>
-                                                {{$product->price}}
+                                                {{$product->price}}$
                                             </td>
                                             <td>
-                                                Start Data: <?php echo date('Y-m-d', $product->start_date);?> <br>
-                                                End Data: <?php echo date('Y-m-d', $product->end_date);?> <br>
+                                                Start Data: {!! date('Y-m-d', $product->start_date) == date('Y-m-d', 0) ? 'no date' : date('Y-m-d', $product->start_date) !!} <br>
+                                                End Data: {!! date('Y-m-d', $product->end_date) == date('Y-m-d', 0) ? 'no date' : date('Y-m-d', $product->end_date) !!} <br>
                                             </td>
                                             <td>
                                                 <div class="d-flex">

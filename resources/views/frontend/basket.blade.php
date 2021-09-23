@@ -3,11 +3,7 @@
 @section('content')
 
     <div class="container">
-        @if($tot)
-            <div class="total-all">total:{{$tot}}$</div>
-        @else
-            <div>total:0</div>
-        @endif
+        <div class="total-all">Total: {{$tot}}$</div>
         <div class="card-deck row">
 {{--            {{dd($baskets)}}--}}
             @if($baskets)

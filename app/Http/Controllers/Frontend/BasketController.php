@@ -11,12 +11,16 @@ class BasketController extends Controller
 
     public function index(){
         $baskets = Basket::with('product', 'user')->where('user_id', auth()->id())->get();
-        foreach ($baskets as $total){
-            $price = $total->product->price;
-            $count = $total->count;
-            $all[] = $price * $count;
+        if (count($baskets)){
+            foreach ($baskets as $total){
+                $price = $total->product->price;
+                $count = $total->count;
+                $all[] = $price * $count;
+            }
+            $tot= array_sum($all);
+        }else{
+            $tot = 0;
         }
-        $tot= array_sum($all);
         return view('Frontend/basket', compact('baskets', 'tot'));
     }
 
@@ -47,12 +51,16 @@ class BasketController extends Controller
 
     public function total(){
         $baskets = Basket::with('product', 'user')->where('user_id', auth()->id())->get();
-        foreach ($baskets as $total){
-            $price = $total->product->price;
-            $count = $total->count;
-            $all[] = $price * $count;
+        if (count($baskets)) {
+            foreach ($baskets as $total) {
+                $price = $total->product->price;
+                $count = $total->count;
+                $all[] = $price * $count;
+            }
+            $tot = array_sum($all);
+        }else{
+            $tot = 0;
         }
-        $tot= array_sum($all);
         return response()->json($tot, 200);
     }
 

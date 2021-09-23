@@ -54,11 +54,11 @@
                                         </div>
                                         <div class="form-group col-6">
                                             <label for="exampleInputFile">Start Date</label>
-                                            <input type="date" class="form-control" name="start_date" value=" {!! date('Y-m-d', $product->start_date) !!} ">
+                                            <input type="date" class="form-control start_date" name="start_date" value=" {!! date('Y-m-d', $product->start_date) !!} ">
                                         </div>
                                         <div class="form-group col-6">
                                             <label for="exampleInputFile">End Date</label>
-                                            <input type="date" class="form-control" name="end_date" value=" <?php echo date('Y-m-d', $product->end_date);?>">
+                                            <input type="date" class="form-control end_date" name="end_date" disabled="disabled" value=" <?php echo date('Y-m-d', $product->end_date);?>">
                                         </div>
                                     </div>
 

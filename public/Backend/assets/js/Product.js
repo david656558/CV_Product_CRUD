@@ -61,6 +61,11 @@ $(document).on('click',  '.product-submit', function (e) {
         $('.valImage').css('display', 'block');
         err = true;
     }
+    if ($('.start_date').val() != "" && $('.end_date').val() == ''){
+        $('.end_date').css('border', '2px solid red');
+        err = true;
+    }
+
     if(!err){
         $('#ProductForm').submit();
     }
@@ -83,8 +88,17 @@ $(document).on('click',  '.product-submit-update', function (e) {
         $('.val-price').css('border', '2px solid red');
         err = true;
     }
+    if ($('.start_date').val() != "" && $('.end_date').val() == ''){
+        $('.end_date').css('border', '2px solid red');
+        err = true;
+    }
     if(!err){
         $('#ProductFormUpdate').submit();
     }
 });
 
+
+$(document).on('change',  '.start_date', function () {
+    $('.end_date').removeAttr('disabled')
+
+})

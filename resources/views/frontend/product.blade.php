@@ -26,7 +26,7 @@
                         </div>
                         <div class="card-footer">
                             @auth
-                                <a href="javascript:;" class="add-bascet" data-id="{{$product->id}}"><i class="fas fa-shopping-basket"></i></a>
+                                <a href="javascript:;" class="add-bascet" @if(count($product->basket)) style="color: #00e500;" @endif data-id="{{$product->id}}"><i class="fas fa-shopping-basket"></i></a>
                             @endauth
                             @guest
                                 <a href="{{route('register')}}"><i class="fas fa-shopping-basket"></i></a>

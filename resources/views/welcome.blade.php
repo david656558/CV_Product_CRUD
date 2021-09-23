@@ -71,7 +71,7 @@
                         <div class="p-6 border-t border-gray-200 dark:border-gray-700 md:border-t-0 md:border-l">
                             <div class="flex items-center">
                                 <i class="fas fa-shopping-basket"></i>
-                                <div class="ml-4 text-lg leading-7 font-semibold"><a href="{{route('basket.index.front')}}">Bascet</a></div>
+                                <div class="ml-4 text-lg leading-7 font-semibold">@auth<a href="{{route('basket.index.front')}}">Bascet</a> @else <a href="{{route('register')}}">Bascet</a> @endauth</div>
                             </div>
 
                             <div class="ml-12">

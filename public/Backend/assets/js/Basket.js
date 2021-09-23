@@ -12,9 +12,8 @@ $(document).on('click', '.add-bascet', function () {
             id:id,
             count:count,
         } ,
-        success: function(result){
-            console.log(result);
-
+        success: (result) => {
+            $(this).css('color', '#00e500')
         }
     });
 })
@@ -69,6 +68,7 @@ $(document).on('click', '.del-basket', function () {
             'X-CSRF-TOKEN': $('meta[name = "csrf-token"]').attr('content')
         },
         success: (result) => {
+            total();
             $(this).closest('.text-center').remove()
         }
     });
